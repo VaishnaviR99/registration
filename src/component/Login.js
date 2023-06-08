@@ -25,7 +25,7 @@ const Login = () => {
     if(validate()){
 
     try {
-      const response = await fetch('http://localhost:8000/users', {
+      const response = await fetch('http://localhost:8000/login', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
