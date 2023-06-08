@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import "../styles/home.css"
 
 const TodoList = () => {
   const [task, setTask] = useState("");
@@ -43,7 +44,10 @@ const TodoList = () => {
 
   return (
     <div className="container">
-      <h1>Todo List</h1>
+      <div>
+      <h1>Tasks</h1>
+      </div>
+     
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input

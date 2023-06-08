@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import "../styles/login.css"
 
 const Login = () => {
   const [mobile, mobileupdate] = useState('');
@@ -25,7 +26,7 @@ const Login = () => {
     if(validate()){
 
     try {
-      const response = await fetch('http://localhost:8000/login', {
+      const response = await fetch('http://localhost:8000/users', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -63,8 +64,8 @@ const Login = () => {
     return result;
   }
   return (
-    <div className="row">
-      <div className="offset-lg-3 col-lg-6" style={{ marginTop: '100px' }}>
+    <div className="container">
+    <div className="form-container" style={{ marginTop: '100px' }}>
         <form onSubmit={handleSubmit} className="container">
           <div className="card">
             <div className="card-header">
@@ -73,16 +74,16 @@ const Login = () => {
             <div className="card-body">
               <div className="form-group">
                 <label>Mobile Number <span >*</span></label>
-                <input value={mobile} onChange={e => mobileupdate(e.target.value)} className="form-control"></input>
+                <input value={mobile} onChange={e => mobileupdate(e.target.value)} className="input-field"></input>
               </div>
               <div className="form-group">
                 <label>Password <span className="errmsg">*</span></label>
-                <input type="password" value={password} onChange={e => passwordupdate(e.target.value)} className="form-control"></input>
+                <input type="password" value={password} onChange={e => passwordupdate(e.target.value)} className="input-field"></input>
               </div>
             </div>
             <div className="card-footer">
               <button type="submit" className="btn btn-primary">Login</button> |
-              <Link className="btn btn-success" to={'/register'}>New User</Link>
+              <Link className="btn btn-success" to={'/register'}><button>New User</button></Link>
             </div>
           </div>
         </form>
